@@ -37,14 +37,10 @@ export function SiteHeader() {
       {/* faixa superior — masthead */}
       <div className="border-b-4 border-primary">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-6">
-          <Link href="/" className="group flex items-center gap-4" aria-label="INSURGÊNCIA — página inicial">
-            <img
-              src="/emblema-facao-caneta.png"
-              alt="Emblema da INSURGÊNCIA: facão e caneta cruzados"
-              className="h-16 w-16 shrink-0 object-contain mix-blend-multiply opacity-95 sm:h-20 sm:w-20"
-            />
+          <Link href="/" className="group flex items-center gap-3" aria-label="INSURGÊNCIA — página inicial">
+            <span aria-hidden="true" className="h-12 w-2 shrink-0 bg-primary sm:h-16" />
             <span className="flex flex-col leading-none">
-              <span className="masthead text-4xl text-primary sm:text-6xl">
+              <span className="masthead text-4xl text-ink-foreground sm:text-6xl">
                 INSURGÊNCIA
               </span>
               <span className="mt-2 font-sans text-xs uppercase tracking-[0.35em] text-ink-muted sm:text-sm">

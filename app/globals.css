@@ -43,39 +43,38 @@
   color-scheme: light;
   --radius: 0px;
 
-  /* papel de mimeógrafo / bege envelhecido */
-  --background: oklch(0.9 0.018 84);
-  --foreground: oklch(0.16 0.006 40);
+  /* branco limpo — respiro */
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.15 0 0);
 
-  --card: oklch(0.93 0.016 84);
-  --card-foreground: oklch(0.16 0.006 40);
-  --popover: oklch(0.93 0.016 84);
-  --popover-foreground: oklch(0.16 0.006 40);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0 0);
 
-  /* vermelho sangue */
-  --primary: oklch(0.44 0.18 27);
-  --primary-foreground: oklch(0.94 0.02 84);
+  /* vermelho de combate — mais vivo e limpo */
+  --primary: oklch(0.55 0.24 27);
+  --primary-foreground: oklch(0.99 0 0);
 
-  --secondary: oklch(0.84 0.02 82);
-  --secondary-foreground: oklch(0.18 0.006 40);
+  --secondary: oklch(0.96 0 0);
+  --secondary-foreground: oklch(0.15 0 0);
 
-  --muted: oklch(0.85 0.018 82);
-  --muted-foreground: oklch(0.42 0.012 55);
+  --muted: oklch(0.96 0 0);
+  --muted-foreground: oklch(0.45 0 0);
 
-  /* ouro queimado / sépia */
-  --accent: oklch(0.56 0.1 66);
-  --accent-foreground: oklch(0.14 0.006 40);
+  --accent: oklch(0.55 0.24 27);
+  --accent-foreground: oklch(0.99 0 0);
 
-  --destructive: oklch(0.44 0.18 27);
+  --destructive: oklch(0.55 0.24 27);
 
-  --border: oklch(0.32 0.012 45);
-  --input: oklch(0.72 0.02 70);
-  --ring: oklch(0.44 0.18 27);
+  --border: oklch(0.15 0 0);
+  --input: oklch(0.85 0 0);
+  --ring: oklch(0.55 0.24 27);
 
-  /* preto — luto, força bruta */
-  --ink: oklch(0.14 0.006 40);
-  --ink-foreground: oklch(0.9 0.018 84);
-  --ink-muted: oklch(0.66 0.014 70);
+  /* preto — força, contraste */
+  --ink: oklch(0.13 0 0);
+  --ink-foreground: oklch(0.98 0 0);
+  --ink-muted: oklch(0.68 0 0);
 }
 
 @layer base {
@@ -84,32 +83,24 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-image: url('/textures/mimeografo.png');
-    background-size: 620px;
-    background-repeat: repeat;
-    background-blend-mode: multiply;
   }
 }
 
 @layer utilities {
-  /* textura sobre superfícies escuras */
+  /* superfície escura sólida */
   .bg-ink-paper {
     background-color: var(--ink);
-    background-image: url('/textures/mimeografo.png');
-    background-size: 620px;
-    background-blend-mode: soft-light;
   }
 
   .masthead {
     font-family: var(--font-sans);
     font-weight: 700;
-    letter-spacing: 0.02em;
+    letter-spacing: -0.01em;
     text-transform: uppercase;
-    transform: skew(-4deg);
   }
 
   .rule-thick {
-    border-bottom: 4px solid var(--ink);
+    border-bottom: 3px solid var(--ink);
   }
 
   .text-stroke-ink {
