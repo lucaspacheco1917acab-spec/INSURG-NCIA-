@@ -52,7 +52,7 @@ export function SiteHeader() {
           {/* busca — desktop */}
           <form
             onSubmit={submitSearch}
-            className="hidden items-center border-2 border-ink-muted/50 bg-ink/40 lg:flex"
+            className="hidden items-center overflow-hidden rounded-full border border-ink-muted/30 bg-white/5 lg:flex"
             role="search"
           >
             <label htmlFor="busca-desktop" className="sr-only">
@@ -67,7 +67,7 @@ export function SiteHeader() {
             />
             <button
               type="submit"
-              className="flex h-full items-center border-l-2 border-ink-muted/50 px-3 text-ink-foreground transition-colors hover:bg-primary"
+              className="flex h-full items-center border-l border-ink-muted/30 px-3 text-ink-foreground transition-colors hover:bg-primary"
               aria-label="Buscar"
             >
               <Search className="h-4 w-4" />
@@ -77,7 +77,7 @@ export function SiteHeader() {
           {/* botão menu — mobile */}
           <button
             onClick={() => setMenuOpen((v) => !v)}
-            className="flex items-center gap-2 border-2 border-ink-muted/60 px-3 py-2 font-sans text-sm uppercase tracking-wide lg:hidden"
+            className="flex items-center gap-2 rounded-full border border-ink-muted/40 px-4 py-2 font-sans text-sm uppercase tracking-wide transition-colors hover:border-primary hover:text-primary lg:hidden"
             aria-expanded={menuOpen}
             aria-controls="menu-principal"
           >

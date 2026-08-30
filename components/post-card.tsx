@@ -5,15 +5,15 @@ import { CategoryBadge } from '@/components/category-badge'
 
 export function PostCard({ post }: { post: Post }) {
   return (
-    <article className="flex h-full flex-col border-2 border-ink bg-card">
-      <div className="flex items-center justify-between border-b-2 border-ink bg-ink px-3 py-2">
+    <article className="surface-card group flex h-full flex-col overflow-hidden rounded-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 hover:shadow-[0_12px_40px_-12px_oklch(0.585_0.238_27_/_0.5)]">
+      <div className="flex items-center justify-between border-b border-border/60 px-4 py-2.5">
         <CategoryBadge slug={post.category} />
-        <span className="font-sans text-xs uppercase tracking-wider text-ink-muted">
+        <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground">
           {formatDate(post.date)}
         </span>
       </div>
 
-      <div className="flex flex-1 flex-col p-4">
+      <div className="flex flex-1 flex-col p-5">
         <h3 className="font-sans text-xl font-bold uppercase leading-tight tracking-tight text-pretty">
           <Link href={`/artigo/${post.slug}`} className="transition-colors hover:text-primary">
             {post.title}

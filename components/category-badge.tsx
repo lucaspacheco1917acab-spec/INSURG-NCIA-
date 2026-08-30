@@ -12,7 +12,7 @@ export function CategoryBadge({
   if (!category) return null
 
   const className =
-    'inline-block border-2 border-primary bg-primary px-2 py-0.5 font-sans text-xs font-semibold uppercase tracking-[0.15em] text-primary-foreground'
+    'inline-block rounded-full border border-primary bg-primary px-3 py-0.5 font-sans text-xs font-semibold uppercase tracking-[0.15em] text-primary-foreground'
 
   if (!asLink) {
     return <span className={className}>{category.short}</span>

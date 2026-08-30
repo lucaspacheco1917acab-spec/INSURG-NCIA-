@@ -28,61 +28,92 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  /* superfícies escuras (topo, rodapé, faixas) */
+  /* superfícies de força (topo, rodapé, faixas) */
   --color-ink: var(--ink);
   --color-ink-foreground: var(--ink-foreground);
   --color-ink-muted: var(--ink-muted);
 
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
-  --radius-xl: 0px;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
 }
 
 :root {
-  color-scheme: light;
-  --radius: 0px;
+  color-scheme: dark;
+  --radius: 0.875rem;
 
-  /* branco limpo — respiro */
-  --background: oklch(0.99 0 0);
-  --foreground: oklch(0.15 0 0);
+  /* grafite profundo — base rubro-negra */
+  --background: oklch(0.17 0.012 25);
+  --foreground: oklch(0.96 0.004 60);
 
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.15 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0 0);
+  /* superfície elevada translúcida */
+  --card: oklch(0.215 0.014 25);
+  --card-foreground: oklch(0.96 0.004 60);
+  --popover: oklch(0.2 0.014 25);
+  --popover-foreground: oklch(0.96 0.004 60);
 
-  /* vermelho de combate — mais vivo e limpo */
-  --primary: oklch(0.55 0.24 27);
+  /* vermelho de combate */
+  --primary: oklch(0.585 0.238 27);
   --primary-foreground: oklch(0.99 0 0);
 
-  --secondary: oklch(0.96 0 0);
-  --secondary-foreground: oklch(0.15 0 0);
+  --secondary: oklch(0.26 0.016 25);
+  --secondary-foreground: oklch(0.96 0.004 60);
 
-  --muted: oklch(0.96 0 0);
-  --muted-foreground: oklch(0.45 0 0);
+  --muted: oklch(0.26 0.014 25);
+  --muted-foreground: oklch(0.72 0.01 40);
 
-  --accent: oklch(0.55 0.24 27);
+  --accent: oklch(0.585 0.238 27);
   --accent-foreground: oklch(0.99 0 0);
 
-  --destructive: oklch(0.55 0.24 27);
+  --destructive: oklch(0.585 0.238 27);
 
-  --border: oklch(0.15 0 0);
-  --input: oklch(0.85 0 0);
-  --ring: oklch(0.55 0.24 27);
+  --border: oklch(0.32 0.014 30 / 0.6);
+  --input: oklch(0.32 0.014 30);
+  --ring: oklch(0.585 0.238 27);
 
-  /* preto — força, contraste */
-  --ink: oklch(0.13 0 0);
-  --ink-foreground: oklch(0.98 0 0);
-  --ink-muted: oklch(0.68 0 0);
+  /* preto absoluto — topo, rodapé, faixas */
+  --ink: oklch(0.11 0.008 25);
+  --ink-foreground: oklch(0.97 0.004 60);
+  --ink-muted: oklch(0.66 0.01 40);
 }
 
 @layer base {
   * {
     @apply border-border;
   }
+  html {
+    @apply bg-background;
+  }
   body {
     @apply bg-background text-foreground;
+    position: relative;
+    min-height: 100vh;
+  }
+  /* bandeiras rubro-negras — atmosfera sutil, fixa ao fundo */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background-image: url('/bandeiras-fundo.png');
+    background-size: cover;
+    background-position: center 20%;
+    background-attachment: fixed;
+    opacity: 0.14;
+    filter: saturate(1.1) contrast(1.05);
+    pointer-events: none;
+  }
+  /* véu de profundidade sobre as bandeiras */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(120% 80% at 50% 0%, oklch(0.17 0.012 25 / 0.55), oklch(0.15 0.012 25 / 0.92) 70%),
+      linear-gradient(to bottom, oklch(0.15 0.012 25 / 0.7), oklch(0.16 0.012 25 / 0.96));
+    pointer-events: none;
   }
 }
 
@@ -90,6 +121,13 @@
   /* superfície escura sólida */
   .bg-ink-paper {
     background-color: var(--ink);
+  }
+
+  /* cartão de vidro sobre as bandeiras */
+  .surface-card {
+    background-color: oklch(0.215 0.014 25 / 0.82);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
   }
 
   .masthead {
@@ -100,10 +138,10 @@
   }
 
   .rule-thick {
-    border-bottom: 3px solid var(--ink);
+    border-bottom: 3px solid var(--primary);
   }
 
   .text-stroke-ink {
-    -webkit-text-stroke: 1.5px var(--ink);
+    -webkit-text-stroke: 1.5px var(--ink-foreground);
   }
 }
